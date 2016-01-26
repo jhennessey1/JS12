@@ -8,7 +8,6 @@ angular.module('modRush')
 			$scope.spot = {
 				'left': event.clientX.toString()+"px",
 				'top': event.clientY.toString()+"px",
-				'message': {{comment}}
 			}
 			$scope.coordinates.push($scope.spot)
 		}
