@@ -9,10 +9,10 @@
 	<body ng-controller="goldRoller">
 		<img src="https://github.com/RefactorU/exercise-starters/blob/master/client-js/gold-rush/topo-co.jpg?raw=true" width="100%" height="100%" ng-click="markSpot($event)">
 		
-		<div class="marker" ng-repeat="n in coordinates" ng-style='{ {{n.coords}} }' ng-click="deleteSpot($index)" ng-mouseenter="commentsOn()" ng-mouseleave="commentsOff()">
+		<div class="marker" ng-repeat="n in coordinates" ng-style='{{n.coords}}' ng-click="deleteSpot($index)" ng-mouseenter="commentsOn()" ng-mouseleave="commentsOff()">
 			<div ng-bind="coordinates[$index].comment"></div>
 		</div>
-		<div class="textbox" ng-repeat="n in coordinates" ng-style='{ {{n.coords}} }'>
+		<div class="textbox" ng-repeat="n in coordinates" ng-style='{{n.coords}}'>
 			<textarea rows="5" cols="20" placeholder="Write a comment..." ng-model="coordinates[$index].comment"></textarea>
 			<input type="submit" value="Submit" ng-click="subComment($index)" ng-hide="hideTextarea"/>
 		</div>
