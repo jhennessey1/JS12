@@ -2,40 +2,48 @@ angular.module('modRush', [])
 
 angular.module('modRush')
 	.controller('goldRoller', ['$scope', function($scope){
-		$scope.coordinates = []
-		$scope.comments = {}
+		$scope.goldSpots = []
 		$scope.markSpot = function(event) {
-			$scope.markObject = {
-				'coords' : { 
-					'left': (event.clientX - 5).toString()+"px",
-				  	'top': (event.clientY - 5).toString()+"px" 
-				  },
-				'left': (event.clientX - 5).toString()+"px",
-				'top': (event.clientY - 5).toString()+"px",
-				'comment':'',
-				'showComment': false
+			var offset = 10
+			var x = event.clientX - offset
+			var y = event.clientY - offset
+			var notes = ""
+
+			$scope.goldSpots.push({x: x, y: y, notes: notes, showNote: false, showInput: true})
+			// console.log($scope.goldSpots)
+		}
+		$scope.deleteMark = function(index) {
+			if($scope.goldSpots[index].notes !== "") {
+				$scope.goldSpots.splice(index, 1)
 			}
-			$scope.coordinates.push($scope.markObject)
-		}
-		$scope.deleteSpot = function(index) {
-			$scope.coordinates.splice(index, 1)
-		}
-		
-		$scope.hideTextarea = false
-		$scope.subComment = function(index) {
-			$scope.comments.index = $scope.comments
-			$scope.commentSpots.splice(index, 1)
-			console.log(comments[index])
 		}
 
-		
-
-		$scope.commentsOn = function(index) {
-			$scope.showComment[index] = true
+		$scope.displayNote = function(index) {
+			if($scope.goldSpots[index].notes !== "") {
+				$scope.goldSpots[index].showNote = true
+			}
 		}
 
-		$scope.commentsOff = function(index) {
-			$scope.showComment[index] = false
+		$scope.hideNote = function(index) {
+			if($scope.goldSpots[index].notes !== "") {
+				$scope.goldSpots[index].showNote = false
+			}
+		}
+
+		$scope.addNote = function(index, placeNote) {
+			$scope.goldSpots[index].notes = placeNote
+			$scope.goldSpots[index].showInput = false
 		}
 
 	}])
+
+
+
+
+
+
+
+
+
+
+
