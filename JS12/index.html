@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html ng-app="modRush">
+	<head>
+		<title>JS12: Gold Rush</title>
+		<link rel="stylesheet" href="main.css"/>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script>
+		<script type="text/javascript" src="main.js"></script>
+	</head>
+	<body ng-controller="goldRoller">
+		<img src="https://github.com/RefactorU/exercise-starters/blob/master/client-js/gold-rush/topo-co.jpg?raw=true" width="100%" height="100%" ng-click="markSpot($event)">
+
+		<div class="marker" ng-repeat="n in coordinates" ng-style="{{n}}" ng-click="deleteSpot($index)">
+		</div>
+	</body>
+</html>
