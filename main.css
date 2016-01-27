@@ -4,7 +4,6 @@
 	border-radius: 50%;
 	background-color: red;
 	position: absolute;
-	z-index: 10;
 }
 
 img {
@@ -13,5 +12,13 @@ img {
 
 .commentBox {
 	z-index: 20;
+	position: absolute;
+}
+
+.textbox {
+	position: absolute;
+}
+
+.comment {
 	position: absolute;
 }
